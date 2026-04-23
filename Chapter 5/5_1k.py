@@ -1,0 +1,28 @@
+"""
+Mutable property of lists leads to insteresting phenomena.
+In the code below, first and second are aliases (i.e., they refer
+to the same list)
+"""
+
+first = [10, 20, 30]
+second = first
+print(first)
+print(second)
+
+first[1] = 99
+print(first)
+print(second)
+
+
+# To prevent aliasing, create a new object and
+# copy the contents of the original to it
+third = []
+for element in first:
+    third.append(element)
+print(first)
+print(third)
+
+first[1] = 100
+print(first)
+print(second)
+print(third)
